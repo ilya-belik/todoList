@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Todo List | Ilya Belichenko | Front End</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.min.css" />
+</head>
+
+<body>
+
+  <div class="todo">
+
+    <div class="todo__header">
+
+      <div class="todo__title-contaier">
+        <h1 class="todo__title">To Do list</h1>
+      </div>
+
+      <div class="todo__statistics-contaier container">
+        <ul class="statistics-list">
+          <li class="statistics-list__item">
+            <h5 class="statistics-list__item-title">Scope</h5>
+            <p class="statistics-list__item-result scoupe-count-tasks-js">0</p>
+          </li>
+          <li class="statistics-list__item">
+            <h5 class="statistics-list__item-title">Active</h5>
+            <p class="statistics-list__item-result active-count-tasks-js">0</p>
+          </li>
+          <li class="statistics-list__item">
+            <h5 class="statistics-list__item-title">Successful</h5>
+            <p class="statistics-list__item-result successful-count-tasks-js">0</p>
+          </li>
+        </ul>
+      </div> <!-- .todo__statistics -->
+
+      <div class="todo__add-task-btn-container">
+        <button class="todo__add-task-btn create-task-js"><i class="todo__add-btn-icon"></i></button>
+      </div>
+    </div> <!-- .todo__header -->
+
+    <div class="todo__body">
+      <ul class="tasks-list container tasks-list-js"></ul>
+    </div> <!-- .todo__body -->
+    <div class="todo__footer">
+      <button class="todo__create-task-btn create-task-js">Create new task</button>
+    </div> <!-- .todo__footer -->
+  </div>
+
+  <!-- ==================================================================== -->
+
+  <script src="js/scripts.min.js"></script>
+
+</body>
+
+</html>

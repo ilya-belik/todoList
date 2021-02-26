@@ -14,6 +14,15 @@ const tasksContainer = document.querySelector('.tasks-list-js');
 
 let tasksList;
 
+const filterTasksList = () => {
+  // Removes deleted elements from the tasksList array
+  const list = tasksList.filter((task) => {
+    return !task.removed;
+  });
+
+  return list;
+}
+
 
 // Adds the ability to get the month as text
 Date.prototype.monthNames = [
@@ -139,16 +148,15 @@ const emptyTaskFieldValidation = () => {
 
 // Create a new task
 const createNewTask = () => {
-  
+  const fitleredList = filterTasksList();
   // Если последне задание пустое
-  if(tasksList.length !== 0){
+  if(fitleredList.length !== 0){
     const lastTaskFieldCheck = emptyTaskFieldValidation();
 
     if(!lastTaskFieldCheck)
       return false;
   }
-    
-  
+
   const todayDate = new Date(),
     taskData = {
       date: `${todayDate.getDate()} ${todayDate.getShortMonthName()} ${todayDate.getFullYear()}`,
@@ -264,9 +272,7 @@ const editTask = ({taskHtmlElement}) => {
 const renderStatistics = () =>{
 
   // Removes deleted elements from the tasksList array
-  const list = tasksList.filter((task) => {
-    return !task.removed;
-  });
+  const list = filterTasksList();
 
   let scoupe = list.length,
     active = 0,
@@ -454,7 +460,7 @@ const saveTasksList = () => {
 }
 
 // Creating a cookie with an array of tasks
-const renderTasksApi = (() => {
+const onloadRenderTasks = (() => {
   const savedTaskList = getCookie('tasksList');
   tasksList = savedTaskList ? JSON.parse(savedTaskList) : [];
 
